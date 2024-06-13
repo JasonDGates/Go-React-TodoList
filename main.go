@@ -62,8 +62,8 @@ func main(){
 
 		for i, todo := range todos {
 			if fmt.Sprint(todo.ID) == id {
-				todos[i].Completed = true
-				return c.Status(200).JSON(todos[i])
+				todos = append(todos[:i], todos[i+1:]...)
+				return c.Status(200).JSON(fiber.Map{"success": true})
 			}
 		}
 
