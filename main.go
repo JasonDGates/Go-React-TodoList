@@ -23,7 +23,6 @@ type Todo struct {
 var collection *mongo.Collection
 
 func main(){
-	fmt.Println("Hello World")
 	app := fiber.New()
 
 	err := godotenv.Load(".env")
@@ -83,6 +82,7 @@ func getTodos(c *fiber.Ctx) error {
 	}
 	return c.JSON(todos)
 }
+
 func createTodo(c *fiber.Ctx) error {
 	todo := new(Todo)
 
